@@ -381,6 +381,7 @@ public class DevelopmentSettings extends PreferenceFragment
                 Settings.Secure.ADB_PORT, 0);
         boolean mEnabled = mPort > 0;
         updateCheckBox(mAdbOverNetwork, mEnabled);
+        mAdbOverNetwork.setChecked(mEnabled);
         if (mEnabled) {
             IWifiManager mWifiManager = IWifiManager.Stub.asInterface(
                     ServiceManager.getService(Context.WIFI_SERVICE));
@@ -862,6 +863,7 @@ public class DevelopmentSettings extends PreferenceFragment
                         .show();
                 mCurrentDialog = ENABLE_ADB;
                 mAdbDialog.setOnDismissListener(this);
+                mOkDialog.setOnDismissListener(this);
             } else {
                 Settings.Secure.putInt(getActivity().getContentResolver(),
                         Settings.Secure.ADB_ENABLED, 0);
