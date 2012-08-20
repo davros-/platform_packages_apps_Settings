@@ -1333,18 +1333,5 @@
         <item>10000</item>
     </integer-array>
 
-<<<<<<< HEAD
-    <string-array name="lockscreen_battery_status_entries">
-        <item>@string/lockscreen_battery_status_charging</item>
-        <item>@string/lockscreen_battery_status_alwayson</item>
-    </string-array>
-
-    <string-array name="lockscreen_battery_status_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-=======
->>>>>>> 4e452d7... Settings: Add option to always show battery status on lockscreen (2/2)
     <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>
