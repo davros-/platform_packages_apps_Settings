@@ -107,6 +107,7 @@ public class LockscreenTargets extends Fragment implements ShortcutPickHelper.On
         setHasOptionsMenu(true);
         mIsScreenLarge = Utils.isScreenLarge();
         mActivity = getActivity();
+        mIsScreenLarge = !Utils.isPhone(mActivity);
         mResources = getResources();
         mIsLandscape = mResources.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
         mTargetOffset = mIsLandscape && !mIsScreenLarge ? 2 : 0;
