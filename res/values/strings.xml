@@ -4770,11 +4770,11 @@
 
     <!-- Power menu screenshot -->
     <string name="power_menu_screenshot_title">Power menu screenshot</string>
-=======
     <!-- **** CYANOGENMOD ADDITIONS START **** -->
+    
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
->>>>>>> 319c6ad... Add an option to change the device hostname (2/2).
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
