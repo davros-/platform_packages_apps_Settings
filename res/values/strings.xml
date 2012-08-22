@@ -4769,11 +4769,6 @@
 
     <!-- Power menu screenshot -->
     <string name="power_menu_screenshot_title">Power menu screenshot</string>
-    <!-- **** CYANOGENMOD ADDITIONS START **** -->
-    
-    <!-- Hostname setting -->
-    <string name="device_hostname">Device hostname</string>
-
-
+   
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
