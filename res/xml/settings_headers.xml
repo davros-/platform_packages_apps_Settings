@@ -91,7 +91,7 @@
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
 
-        <!-- DEVICE -->
+    <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
     <!-- Sound -->
