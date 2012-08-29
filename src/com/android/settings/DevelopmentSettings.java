@@ -863,7 +863,6 @@ public class DevelopmentSettings extends PreferenceFragment
                         .show();
                 mCurrentDialog = ENABLE_ADB;
                 mAdbDialog.setOnDismissListener(this);
-                mOkDialog.setOnDismissListener(this);
             } else {
                 Settings.Secure.putInt(getActivity().getContentResolver(),
                         Settings.Secure.ADB_ENABLED, 0);
