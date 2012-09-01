@@ -81,9 +81,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         wallpaperImage = new File(mActivity.getFilesDir()+"/lockwallpaper");
         wallpaperTemporary = new File(mActivity.getCacheDir()+"/lockwallpaper.tmp");
 
-        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
-        mBatteryStatus.setOnPreferenceChangeListener(this);
-
         mVibratePref = (CheckBoxPreference) findPreference(KEY_VIBRATE_PREF);
         boolean bVibrate = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_VIBRATE_ENABLED, 1) == 1 ? true : false;
