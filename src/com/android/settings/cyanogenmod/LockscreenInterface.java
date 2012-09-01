@@ -259,15 +259,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 break;
             }
             return true;
-<<<<<<< HEAD
-=======
-        } else if (preference == mBatteryStatus) {
-            int value = Integer.valueOf((String) objValue);
-            int index = mBatteryStatus.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
-            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
-            return true;
         } else if (preference == mVibratePref) {
             boolean bValue = Boolean.valueOf((Boolean) objValue);
             int value = 0;
@@ -277,7 +268,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_VIBRATE_ENABLED, value);
             return true;
->>>>>>> 157ec04... Lockscreen Vibrate option 2 of 2
         }
         return false;
     }
