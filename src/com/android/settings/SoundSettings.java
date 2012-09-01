@@ -20,7 +20,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import android.app.ActivityManagerNative;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -49,8 +48,6 @@ import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.VolumePanel;
-
-import java.util.List;
 
 public class SoundSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -108,8 +105,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private AudioManager mAudioManager;
 
-    private String[] volumeSubNames;
-
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -151,6 +146,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         mVolumeOverlay = (ListPreference) findPreference(KEY_VOLUME_OVERLAY);
         mVolumeOverlay.setOnPreferenceChangeListener(this);
+        int volumeOverlay = Settings.System.getInt(getContentResolver(),
+                Settings.System.MODE_VOLUME_OVERLAY,
+                VolumePanel.VOLUME_OVERLAY_EXPANDABLE);
+        mVolumeOverlay.setValue(Integer.toString(volumeOverlay));
+        mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
 
         mSilentMode = (ListPreference) findPreference(KEY_SILENT_MODE);
         if (!getResources().getBoolean(R.bool.has_silent_mode)) {
@@ -219,7 +219,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
 
         mSoundSettings = (PreferenceGroup) findPreference(KEY_SOUND_SETTINGS);
-        volumeSubNames = getResources().getStringArray(R.array.volume_overlay_entries);
 
         mMusicFx = mSoundSettings.findPreference(KEY_MUSICFX);
         Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
@@ -382,8 +381,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
 
         mSilentMode.setSummary(mSilentMode.getEntry());
-        mVolumeOverlay.setValue(getVolumeOverlaySettingValue());
-        mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
     }
 
     private void updateRingtoneName(int type, Preference preference, int msg) {
@@ -479,9 +476,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         } else if (preference == mSilentMode) {
             setPhoneSilentSettingValue(objValue.toString());
-
         } else if (preference == mVolumeOverlay) {
-            setVolumeOverlaySettingValue(objValue.toString());
+            final int value = Integer.valueOf((String) objValue);
+            final int index = mVolumeOverlay.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MODE_VOLUME_OVERLAY, value);
+            mVolumeOverlay.setSummary(mVolumeOverlay.getEntries()[index]);
         }
 
         return true;
