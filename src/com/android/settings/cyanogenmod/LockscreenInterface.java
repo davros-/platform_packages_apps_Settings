@@ -58,6 +58,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private CheckBoxPreference mVibratePref;
     private Preference mWeatherPref;
     private Preference mCalendarPref;
+    private ListPreference mBatteryStatus;
     private Activity mActivity;
     ContentResolver mResolver;
 
@@ -86,6 +87,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Settings.System.LOCKSCREEN_VIBRATE_ENABLED, 1) == 1 ? true : false;
         mVibratePref.setChecked(bVibrate);
         mVibratePref.setOnPreferenceChangeListener(this);
+        
+        mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY_PREF);
+        mBatteryStatus.setOnPreferenceChangeListener(this);
 
         updateCustomBackgroundSummary();
     }
@@ -119,6 +123,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     }
 
     private void updateState() {
+        int resId;
+
         // Set the weather description text
         if (mWeatherPref != null) {
             boolean weatherEnabled = Settings.System.getInt(mResolver,
@@ -139,6 +145,18 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             } else {
                 mCalendarPref.setSummary(R.string.lockscreen_calendar_summary);
             }
+        }
+
+        // Set the battery status description text
+        if (mBatteryStatus != null) {
+            boolean batteryStatusAlwaysOn = Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, 0) == 1;
+            if (batteryStatusAlwaysOn) {
+                mBatteryStatus.setValueIndex(1);
+            } else {
+                mBatteryStatus.setValueIndex(0);
+            }
+            mBatteryStatus.setSummary(mBatteryStatus.getEntry());
         }
     }
 
@@ -254,6 +272,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 break;
             }
             return true;
+        } else if (preference == mBatteryStatus) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mBatteryStatus.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
+            mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
         } else if (preference == mVibratePref) {
             boolean bValue = Boolean.valueOf((Boolean) objValue);
             int value = 0;
