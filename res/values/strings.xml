@@ -4264,7 +4264,7 @@
     <string name="navbar_enable_bar">Enable Bar</string>
     <string name="navigation_bar_height_title">Navigation Bar Height</string>
     <string name="navigation_bar_height_summary">Navigation Bar height while in portrait</string>
-    <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
+    <string name="navigation_bar_height_landscape_title">Navigation Bar Height Landscape</string>
     <string name="navigation_bar_height_landscape_summary">Navigation Bar height while in landscape</string>
     <string name="navigation_bar_width_title">Navigation Bar Width</string>
     <string name="navigation_bar_width_summary">Navigation Bar height if the bar is along a side</string>
