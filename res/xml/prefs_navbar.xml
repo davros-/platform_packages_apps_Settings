@@ -41,7 +41,7 @@
              android:summary="@string/navigation_bar_glow_tint_summary"
              android:defaultValue="#FFFFFF" />
 
-		<ListPreference
+	<ListPreference
              android:entries="@array/glow_times_entries"
              android:entryValues="@array/glow_times_values"
              android:key="glow_times"
