@@ -84,11 +84,16 @@ public class NavBar2 extends SettingsPreferenceFragment implements
     private static final String PREF_NAV_COLOR = "nav_button_color";
     private static final String PREF_NAV_GLOW_COLOR = "nav_button_glow_color";
     private static final String PREF_GLOW_TIMES = "glow_times";
+    private static final String NAVIGATION_BAR_BACKGROUND_COLOR = "navigation_bar_background_color";
+
+    private static final int DEFAULT_NAVBAR_BG_COLOR = 0xFF000000;
+
     public static final String PREFS_NAV_BAR = "navbar";
 
     SeekBarPreference mButtonAlpha;
     ColorPickerPreference mNavigationBarColor;
     ColorPickerPreference mNavigationBarGlowColor;
+    ColorPickerPreference mNavigationBarBgColor;
     ListPreference mGlowTimes;
     CheckBoxPreference mEnableNavigationBar;
     ListPreference mNavigationBarHeight;
@@ -124,6 +129,9 @@ public class NavBar2 extends SettingsPreferenceFragment implements
 
         mNavigationBarWidth = (ListPreference) findPreference("navigation_bar_width");
         mNavigationBarWidth.setOnPreferenceChangeListener(this);
+
+        mNavigationBarBgColor = (ColorPickerPreference) findPreference(NAVIGATION_BAR_BACKGROUND_COLOR);
+        mNavigationBarBgColor.setOnPreferenceChangeListener(this);
 
     	mNavigationBarColor = (ColorPickerPreference) findPreference(PREF_NAV_COLOR);
         mNavigationBarColor.setOnPreferenceChangeListener(this);
@@ -193,6 +201,16 @@ public class NavBar2 extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_TINT, intHex);
             return true;
+
+        } else if (preference == mNavigationBarBgColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
+                    .valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_BACKGROUND_COLOR, intHex);
+            return true;
+
         } else if (preference == mNavigationBarGlowColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
