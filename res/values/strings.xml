@@ -4266,6 +4266,7 @@
     <string name="glow_times_off">Off</string>
     <string name="glow_times_title">Button glow animation</string>
     <string name="button_transparency_title">Nav button transparency</string>
+    <string name="navbar_bg_color">Navigation Bar background color</string>
 
     <!-- Navigation Height/Width Settings -->
     <string name="navbar_header">Navigation Bar Size, Glow Color/Speed </string>

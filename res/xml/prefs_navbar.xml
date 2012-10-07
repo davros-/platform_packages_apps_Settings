@@ -29,6 +29,12 @@
         <com.android.settings.cyanogenmod.SeekBarPreference
             android:key="button_transparency"
             android:title="@string/button_transparency_title" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="navigation_bar_background_color"
+            android:title="@string/navbar_bg_color"
+            android:defaultValue="#000000"
+            alphaSlider="true" />
     
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="nav_button_color"
