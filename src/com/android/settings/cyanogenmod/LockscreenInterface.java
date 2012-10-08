@@ -106,7 +106,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         mIsScreenLarge = Utils.isScreenLarge();
 
-
         updateCustomBackgroundSummary();
     }
 
