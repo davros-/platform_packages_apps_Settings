@@ -286,27 +286,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
-<<<<<<< HEAD
-        } else if (preference == mVibratePref) {
-            boolean bValue = Boolean.valueOf((Boolean) objValue);
-            int value = 0;
-            if (bValue) {
-                value = 1;
-            }
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.LOCKSCREEN_VIBRATE_ENABLED, value);
-=======
->>>>>>> 8fed11c... Settings: Move vibrate on unlock to the Screen security section
             return true;
         } else if (preference == mClockAlign) {
             int value = Integer.valueOf((String) objValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_CLOCK_ALIGN, value);
             mClockAlign.setSummary(mClockAlign.getEntries()[value]);
-<<<<<<< HEAD
-            return true;
-=======
->>>>>>> 8fed11c... Settings: Move vibrate on unlock to the Screen security section
         }
         return false;
     }
