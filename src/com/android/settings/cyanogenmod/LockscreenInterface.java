@@ -98,6 +98,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mClockAlign.setOnPreferenceChangeListener(this);
 
         mIsScreenLarge = Utils.isScreenLarge();
+        mVibratePref = (CheckBoxPreference) findPreference(KEY_VIBRATE_PREF);
+        boolean bVibrate = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_VIBRATE_ENABLED, 1) == 1 ? true : false;
+        mVibratePref.setChecked(bVibrate);
+        mVibratePref.setOnPreferenceChangeListener(this);
+
+        mIsScreenLarge = Utils.isScreenLarge();
+
 
         updateCustomBackgroundSummary();
     }
