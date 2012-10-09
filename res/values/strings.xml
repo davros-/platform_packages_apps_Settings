@@ -4268,7 +4268,7 @@
     <string name="button_transparency_title">Nav button transparency</string>
 
     <!-- Navigation Height/Width Settings -->
-    <string name="navbar_header">Navigation Bar Size, Glow Color/Speed </string>
+    <string name="navbar_header">Bar Size, Glow, Speed </string>
     <string name="navbar_header_summary">Height/Width</string>
     <string name="navbar_enable_bar">Enable Bar</string>
     <string name="navigation_bar_height_title">Navigation Bar Height</string>
