@@ -104,11 +104,11 @@ public class PowerMenu extends SettingsPreferenceFragment {
             value = mSilentPref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_SILENT_ENABLED,
+                    value ? 1 : 0);
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
 
         return true;
     }
-
 }
