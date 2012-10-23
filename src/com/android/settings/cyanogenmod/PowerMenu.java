@@ -66,10 +66,6 @@ public class PowerMenu extends SettingsPreferenceFragment {
                 Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1;
         mProfilesPref.setEnabled(enabled);
 
-        mAirplanePref = (CheckBoxPreference) findPreference(KEY_AIRPLANE);
-        mAirplanePref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_AIRPLANE_ENABLED, 1) == 1));
-
         mSilentPref = (CheckBoxPreference) findPreference(KEY_SILENT);
         mSilentPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_SILENT_ENABLED, 1) == 1));
