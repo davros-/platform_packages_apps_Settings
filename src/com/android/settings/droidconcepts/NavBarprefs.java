@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.projectelite;
+package com.android.settings.droidconcepts;
 
 import android.os.Bundle;
 import android.preference.Preference;
