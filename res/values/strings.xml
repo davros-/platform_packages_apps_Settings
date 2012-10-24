@@ -4380,6 +4380,7 @@
     <string name="status_bar_battery_status_circle">Circle</string>
     <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
     <string name="status_bar_battery_status_hidden">Hidden</string> <!-- TODO: dedup -->
+    <string name="status_bar_battery_status_digital">Digital</string>
 
     <string name="lock_screen_title">Lock screen</string>
 
