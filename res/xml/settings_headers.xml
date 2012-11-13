@@ -96,6 +96,7 @@
         android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
         android:icon="@drawable/ic_settings_performance"
         android:title="@string/performance_settings_title" />
+    </header>
 
     <!-- DeviceParts Device Specific settings -->
     <header
