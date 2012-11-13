@@ -89,7 +89,24 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.tmobile.themechooser"
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
+
+    <!-- Performance -->
+    <header
+        android:id="@+id/performance_settings"
+        android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
+        android:icon="@drawable/ic_settings_performance"
+        android:title="@string/performance_settings_title" />
+
+    <!-- DeviceParts Device Specific settings -->
+    <header
+        android:id="@+id/advanced_settings"
+        android:title="@string/advanced_settings_title"
+        android:icon="@drawable/ic_settings_advanced">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
+    </header>    
 
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
@@ -134,17 +151,6 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:id="@+id/manufacturer_settings">
         <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
-    </header>
-
-    <!-- DeviceParts Device Specific settings -->
-    <header
-        android:id="@+id/advanced_settings"
-        android:title="@string/advanced_settings_title"
-        android:icon="@drawable/ic_settings_advanced">
-        <intent
-            android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
     </header>
 
     <!-- PERSONAL -->
